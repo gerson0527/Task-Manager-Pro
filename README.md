@@ -1,35 +1,35 @@
-# Task Manager Pro ??
+# Task Manager Pro ğŸ“‹
 
-Task Manager Pro es una aplicación web moderna para la gestión de tareas, diseñada para ayudar a individuos y equipos a organizar y dar seguimiento a sus actividades de manera eficiente.
+Task Manager Pro es una aplicaciÃ³n web moderna para la gestiÃ³n de tareas, diseÃ±ada para ayudar a individuos y equipos a organizar y dar seguimiento a sus actividades de manera eficiente.
 
-## ? Características
+## âœ¨ CaracterÃ­sticas
 
-### Gestión de Tareas
-- Creación y edición de tareas con descripción detallada
-- Asignación de fechas de vencimiento
+### GestiÃ³n de Tareas
+- CreaciÃ³n y ediciÃ³n de tareas con descripciÃ³n detallada
+- AsignaciÃ³n de fechas de vencimiento
 - Sistema de prioridades
 - Estado de tareas (pendiente, en progreso, completada, vencida)
 - Arrastrar y soltar para reordenar tareas
 
-### Categorización
-- Creación de categorías personalizadas 
-- Asignación de colores a categorías
-- Organización de tareas por categoría
-- Contador de tareas por categoría
+### CategorizaciÃ³n
+- CreaciÃ³n de categorÃ­as personalizadas 
+- AsignaciÃ³n de colores a categorÃ­as
+- OrganizaciÃ³n de tareas por categorÃ­a 
+- Contador de tareas por categorÃ­a
 
 ### Almacenamiento Local
 - Persistencia de datos en localStorage
 - Funcionamiento offline
-- Sincronización automática de cambios
+- SincronizaciÃ³n automÃ¡tica de cambios
 
-## ??? Tecnologías Utilizadas
+## ğŸ› ï¸ TecnologÃ­as Utilizadas
 
 - **React** - Framework de JavaScript para el frontend
-- **Tailwind CSS** - Framework de CSS para el diseño
-- **Lucide React** - Librería de iconos
+- **Tailwind CSS** - Framework de CSS para el diseÃ±o
+- **Lucide React** - LibrerÃ­a de iconos
 - **LocalStorage API** - Para persistencia de datos
 
-## ?? Instalación
+## ğŸ“¦ InstalaciÃ³n
 
 1. Clona el repositorio:
 ```bash
@@ -47,14 +47,14 @@ npm install
 npm run dev
 ```
 
-## ?? Uso
+## ğŸš€ Uso
 
-### Gestión de Tareas
+### GestiÃ³n de Tareas
 
 1. **Crear una tarea:**
-   - Haz clic en el botón "Nueva Tarea"
+   - Haz clic en el botÃ³n "Nueva Tarea"
    - Completa los campos requeridos
-   - Asigna una categoría y fecha de vencimiento
+   - Asigna una categorÃ­a y fecha de vencimiento
    - Guarda la tarea
 
 2. **Editar una tarea:**
@@ -64,31 +64,31 @@ npm run dev
 
 3. **Eliminar una tarea:**
    - Haz clic en el icono de eliminar
-   - Confirma la eliminación
+   - Confirma la eliminaciÃ³n
 
-### Gestión de Categorías
+### GestiÃ³n de CategorÃ­as
 
-1. **Crear una categoría:**
-   - Ve a la sección de categorías
-   - Haz clic en "Nueva Categoría"
+1. **Crear una categorÃ­a:**
+   - Ve a la secciÃ³n de categorÃ­as
+   - Haz clic en "Nueva CategorÃ­a"
    - Asigna un nombre y color
-   - Guarda la categoría
+   - Guarda la categorÃ­a
 
-2. **Editar una categoría:**
-   - Selecciona una categoría existente
+2. **Editar una categorÃ­a:**
+   - Selecciona una categorÃ­a existente
    - Modifica sus propiedades
    - Guarda los cambio
 
-## ?? Configuración
+## ğŸ”§ ConfiguraciÃ³n
 
 El proyecto utiliza las siguientes variables de entorno:
 
 ```env
 VITE_APP_TITLE=Task Manager Pro
-VITE_APP_DESCRIPTION=Gestión de tareas profesional
+VITE_APP_DESCRIPTION=GestiÃ³n de tareas profesional
 ```
 
-## ?? Contribuir
+## ğŸ¤ Contribuir
 
 1. Haz fork del proyecto
 2. Crea una rama para tu feature (`git checkout -b feature/AmazingFeature`)
@@ -97,6 +97,6 @@ VITE_APP_DESCRIPTION=Gestión de tareas profesional
 5. Abre un Pull Request
 
 
-## ?? Autores
+## ğŸ‘¥ Autores
 
 * **Gerson ortiz** - *Trabajo Inicial* - (https://github.com/gerson0527/Task-Manager-Pro)
