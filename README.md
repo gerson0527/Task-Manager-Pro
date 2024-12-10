@@ -9,7 +9,6 @@ Task Manager Pro es una aplicación web moderna para la gestión de tareas, dise
 - Asignación de fechas de vencimiento
 - Sistema de prioridades
 - Estado de tareas (pendiente, en progreso, completada, vencida)
-- Arrastrar y soltar para reordenar tareas
 
 ### Categorización
 - Creación de categorías personalizadas 
