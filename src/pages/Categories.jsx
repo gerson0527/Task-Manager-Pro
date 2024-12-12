@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { Plus } from 'lucide-react';
 import CategoryList from '../components/categories/CategoryList';
 import CategoryForm from '../components/categories/CategoryForm';
+import { useNotifications } from '../components/notifications/NotificationContext';
 
 const STORAGE_KEY = 'task-manager-categories';
 
@@ -9,7 +10,7 @@ const CategoriesPage = () => {
   const [categories, setCategories] = useState([]);
   const [isFormOpen, setIsFormOpen] = useState(false);
   const [editingCategory, setEditingCategory] = useState(null);
-
+  const { showSuccess, showError } = useNotifications();
   // Cargar categorías del localStorage al iniciar
   useEffect(() => {
     const storedCategories = localStorage.getItem(STORAGE_KEY);
@@ -25,30 +26,56 @@ const CategoriesPage = () => {
   };
 
   const handleAddCategory = (newCategory) => {
-    const updatedCategories = [
-      ...categories, 
-      { 
-        ...newCategory, 
-        id: Date.now().toString(),
-        taskCount: 0 
-      }
-    ];
-    updateLocalStorage(updatedCategories);
-    setIsFormOpen(false);
+    try {
+      const updatedCategories = [
+        ...categories, 
+        { 
+          ...newCategory, 
+          id: Date.now().toString(),
+          taskCount: 0 
+        }
+      ];
+      updateLocalStorage(updatedCategories);
+      setIsFormOpen(false);
+      
+      // Notificación de éxito al crear
+      showSuccess('Categoria creada exitosamente');
+
+    } catch (error) {
+      // Notificación de error
+      showError('Error al crear la categoria');
+    }
   };
 
   const handleEditCategory = (updatedCategory) => {
-    const updatedCategories = categories.map(cat => 
-      cat.id === updatedCategory.id ? updatedCategory : cat
-    );
-    updateLocalStorage(updatedCategories);
-    setIsFormOpen(false);
+    try {
+      const updatedCategories = categories.map(cat => 
+        cat.id === updatedCategory.id ? updatedCategory : cat
+      );
+      updateLocalStorage(updatedCategories);
+      setIsFormOpen(false);
+
+      // Notificación de éxito al editar
+      showSuccess('Categoria actualizada exitosamente');
+    } catch (error) {
+      // Notificación de error
+      showError('Error al actualizar la categoria');
+    }
   };
 
   const handleDeleteCategory = (categoryId) => {
-    if (window.confirm('¿Estás seguro de que deseas eliminar esta categoría?')) {
-      const updatedCategories = categories.filter(cat => cat.id !== categoryId);
-      updateLocalStorage(updatedCategories);
+    try {
+      if (window.confirm('¿Estás seguro de que deseas eliminar esta categoría?')) {
+        const categoryToDelete = categories.find(cat => cat.id === categoryId);
+        const updatedCategories = categories.filter(cat => cat.id !== categoryId);
+        updateLocalStorage(updatedCategories);
+
+        // Notificación de éxito al eliminar
+        showSuccess('Categoria eliminada exitosamente');
+      }
+    } catch (error) {
+      // Notificación de error
+      showError('Error al eliminar la categoria');
     }
   };
 
@@ -88,7 +115,7 @@ const CategoriesPage = () => {
         </div>
       </div>
 
-      {/* Lista de categorías - Nota que ya no pasamos onCategoryAdd */}
+      {/* Lista de categorías */}
       <div className="bg-white rounded-lg shadow-sm">
         <CategoryList
           categories={categories}

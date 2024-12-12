@@ -1,7 +1,6 @@
 // src/components/layout/Layout.jsx
 import Header from './Header';
 import Sidebar from './Sidebar';
-import Footer from './Footer';
 
 // src/components/layout/Layout.jsx
 const Layout = ({ children }) => {

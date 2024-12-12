@@ -70,34 +70,25 @@ const Tasks = () => {
   }, []);
 
   // Manejar actualización de tareas
-  const handleTaskUpdate = (taskData) => {
+  const handleTaskUpdate = (taskId, updates) => {
     try {
-      if (typeof taskData === 'string') {
-        // Si es un ID, preparar para edición
-        const taskToEdit = tasks.find(task => task.id === taskData);
-        setEditingTask(taskToEdit);
-      } else {
-        // Actualizar tarea existente
-        setTasks(currentTasks => 
-          currentTasks.map(task => 
-            task.id === taskData.id 
-              ? { 
-                  ...task, 
-                  ...taskData, 
-                  updatedAt: new Date().toISOString() 
-                } 
-              : task
-          )
-        );
-        setEditingTask(null);
-        showSuccess('Tarea actualizada exitosamente');
-      }
+      setTasks(currentTasks =>
+        currentTasks.map(task =>
+          task.id === taskId
+            ? { 
+                ...task, 
+                ...updates,
+                updatedAt: new Date().toISOString(),
+                completedAt: updates.status === 'completed' ? new Date().toISOString() : null
+              }
+            : task
+        )
+      );
+      showSuccess('Tarea actualizada exitosamente');
     } catch (error) {
       showError('Error al actualizar la tarea');
-      console.error('Error actualizando tarea:', error);
     }
   };
-
   // Crear nueva tarea
   const handleCreateTask = (taskData) => {
     try {
@@ -172,6 +163,7 @@ const Tasks = () => {
           tasks={tasks}
           onTaskUpdate={handleTaskUpdate}
           onTaskDelete={handleDeleteTask}
+          
         />
       </div>
     </div>

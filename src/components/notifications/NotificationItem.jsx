@@ -38,8 +38,11 @@ const NotificationItem = ({ notification, onClose }) => {
           </div>
           <div className="ml-3 flex-1">
             <p className="text-sm font-medium">
-              {notification.message}
+              {notification.title || notification.message}
             </p>
+            {notification.title && (
+              <p className="text-sm mt-1">{notification.message}</p>
+            )}
           </div>
           <button
             onClick={() => onClose(notification.id)}

@@ -135,6 +135,25 @@ const Home = () => {
       showError('Error al cambiar el estado de la tarea');
     }
   };
+  const handleTaskUpdate = (taskId, updates) => {
+    try {
+      setTasks(currentTasks =>
+        currentTasks.map(task =>
+          task.id === taskId
+            ? { 
+                ...task, 
+                ...updates,
+                updatedAt: new Date().toISOString(),
+                completedAt: updates.status === 'completed' ? new Date().toISOString() : null
+              }
+            : task
+        )
+      );
+      showSuccess('Tarea actualizada exitosamente');
+    } catch (error) {
+      showError('Error al actualizar la tarea');
+    }
+  };
 
   const handleDragEnd = (result) => {
     if (!result.destination) return;
@@ -195,6 +214,7 @@ const Home = () => {
           onTaskDelete={handleDeleteTask}
           onStatusChange={handleStatusChange}
           onDragEnd={handleDragEnd}
+           onTaskUpdate={handleTaskUpdate}
         />
       </div>
     </div>

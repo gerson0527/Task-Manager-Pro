@@ -1,9 +1,12 @@
 // src/components/tasks/TaskItem.jsx
-import React from 'react';
 import { Draggable } from 'react-beautiful-dnd';
 import { Calendar, Flag, Tag, CheckSquare, Edit2, Trash2 } from 'lucide-react';
 
 const TaskItem = ({ task, index, onUpdate, onDelete ,visible }) => {
+    const handleStatusToggle = () => {
+      const newStatus = task.status === 'completed' ? 'pending' : 'completed';
+      onUpdate(task.id, { status: newStatus });
+    };
   return (
     <Draggable draggableId={task.id} index={index}>
       {(provided) => (
@@ -18,7 +21,7 @@ const TaskItem = ({ task, index, onUpdate, onDelete ,visible }) => {
             <h3 className="font-semibold text-lg text-gray-900">{task.title}</h3>
             <div className="flex space-x-2">
               <button
-                onClick={() => onUpdate({ ...task, status: task.status === 'completed' ? 'pending' : 'completed' })}
+                 onClick={handleStatusToggle}
                 className="p-1.5 rounded-full hover:bg-gray-100 text-gray-400 hover:text-green-500"
               >
                 <CheckSquare className="w-4 h-4" />

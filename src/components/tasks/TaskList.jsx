@@ -1,10 +1,9 @@
-// src/components/tasks/TaskList.jsx
-import  { useState, useEffect } from 'react';
+import { useState, useEffect } from 'react';
 import { DragDropContext, Droppable } from 'react-beautiful-dnd';
 import TaskItem from './TaskItem';
 import TaskFilters from './TaskFilters';
 
-const TaskList = ({ tasks, onTaskUpdate, onTaskDelete,visible }) => {
+const TaskList = ({ tasks, onTaskUpdate, onTaskDelete, visible }) => {
   const [filteredTasks, setFilteredTasks] = useState(tasks);
   const [currentFilter, setCurrentFilter] = useState({
     status: 'all',
@@ -44,7 +43,6 @@ const TaskList = ({ tasks, onTaskUpdate, onTaskDelete,visible }) => {
               ref={provided.innerRef}
               className="grid grid-cols-1 md:grid-cols-2 gap-4"
             >
-            
               {filteredTasks && filteredTasks.length > 0 ? (
                 filteredTasks.map((task, index) => (
                   <TaskItem
